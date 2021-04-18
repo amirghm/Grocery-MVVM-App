@@ -1,7 +1,8 @@
-package com.amirghm.mobiquitysample
+package com.amirghm.mobiquitysample.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.amirghm.mobiquitysample.R
 import com.amirghm.mobiquitysample.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
