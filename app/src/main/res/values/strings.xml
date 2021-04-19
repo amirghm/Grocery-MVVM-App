@@ -2,4 +2,9 @@
     <string name="app_name">Grocery Sample</string>
     <string name="catalog__title">Products</string>
     <string name="cd__product_image">Product image</string>
+    <string name="product_details__description_place_holder">This product has no description</string>
+    <string name="cd__back">"Navigate Back"</string>
+    <string name="product_details__title">Product Details</string>
+    <string name="product_details__add_to_basket">Add to Basket</string>
+    <string name="product_details__message_added_to_basket">Product Added to Basket</string>
 </resources>

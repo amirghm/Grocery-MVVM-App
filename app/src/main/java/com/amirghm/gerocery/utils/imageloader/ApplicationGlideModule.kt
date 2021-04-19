@@ -1,4 +1,4 @@
-package com.orbifo.merchant.utils.imageloader
+package com.amirghm.gerocery.utils.imageloader
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

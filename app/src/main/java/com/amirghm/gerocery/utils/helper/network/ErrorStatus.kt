@@ -20,11 +20,6 @@ enum class ErrorStatus {
     TIMEOUT,
 
     /**
-     * no data available in repository
-     */
-    EMPTY_RESPONSE,
-
-    /**
      * an unexpected error
      */
     NOT_DEFINED,

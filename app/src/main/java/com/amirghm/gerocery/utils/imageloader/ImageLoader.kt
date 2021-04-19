@@ -14,8 +14,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.orbifo.merchant.utils.imageloader.GlideApp
-import com.orbifo.merchant.utils.imageloader.GlideRequest
 
 
 /**
@@ -25,7 +23,6 @@ import com.orbifo.merchant.utils.imageloader.GlideRequest
  * How to call: just call [loadImage]
  *
  * params: placeHolder to show a image while image is loading,
- *   options to set options after loading images like show image as circle view or round image see [circleCropTransform]
  *   progress bar to show progress while loading image
  *   callback that returns loaded images as drawable and a boolean field for result of loading image
  *
