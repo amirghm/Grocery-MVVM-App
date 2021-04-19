@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Mobiquity Sample</string>
+    <string name="app_name">Grocery Sample</string>
+    <string name="catalog__title">Products</string>
+    <string name="cd__product_image">Product image</string>
 </resources>

@@ -1,5 +1,5 @@
 ext {
-    APPLICATION_ID = "com.amirghm.mobiquitysample"
+    APPLICATION_ID = "com.amirghm.gerocery"
 
     COMPILE_SDK = 30
     TARGET_SDK = 30

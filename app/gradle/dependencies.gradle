@@ -7,6 +7,7 @@ ext.androidJetpack = {
     api "com.google.android.material:material:$MATERIAL_LIBRARY"
     api "androidx.recyclerview:recyclerview:$RECYCLER_VIEW"
     api "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT"
+    api "androidx.swiperefreshlayout:swiperefreshlayout:$SWIPE_REFRESH_LAYOUT"
     // lifecycle
     api "androidx.lifecycle:lifecycle-extensions:$ARCH_LIFECYCLE_EXT"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$ARCH_LIFECYCLE_KTX"
