@@ -5,9 +5,21 @@
     <dimen name="product_padding_vertical_size">16dp</dimen>
     <dimen name="shadow_height">4dp</dimen>
     <dimen name="header_padding_horizontal">24dp</dimen>
-    <dimen name="toolbar_shadow_elevation">1dp</dimen>
 
     <dimen name="small_distance">4dp</dimen>
     <dimen name="medium_distance">8dp</dimen>
     <dimen name="large_distance">16dp</dimen>
+    <dimen name="clickable_icon_padding">8dp</dimen>
+    <dimen name="clickable_icon_size">48dp</dimen>
+    <dimen name="product_image_corner_radius">16dp</dimen>
+    <dimen name="button_height">64dp</dimen>
+
+    <!--  Font sizes  -->
+    <dimen name="font_size_xlarge">21sp</dimen>
+    <dimen name="font_size_xxmedium">16sp</dimen>
+    <dimen name="font_size_xmedium">14sp</dimen>
+    <dimen name="font_size_medium">13sp</dimen>
+    <dimen name="product_image_details_height">360dp</dimen>
+
+
 </resources>

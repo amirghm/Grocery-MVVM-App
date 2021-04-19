@@ -1,7 +1,6 @@
 package com.amirghm.gerocery.data.model.catalog
 
 import android.os.Parcelable
-import com.amirghm.gerocery.BuildConfig
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -22,10 +21,6 @@ data class CatalogProductModel(
     val amount: String,
     val currency: String
 ) : CatalogModel(), Parcelable {
-
-    fun getFullImageUrl(): String {
-        return "${BuildConfig.BASE_IMAGE_URL}$imageUrl"
-    }
 
     fun getAmountWithCurrency():String
     {

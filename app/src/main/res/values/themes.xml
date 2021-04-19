@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Theme.Gerocery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -9,30 +9,30 @@
     </style>
 
     <style name="titleTextAppearance">
-        <item name="android:textSize">21sp</item>
+        <item name="android:textSize">@dimen/font_size_xlarge</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
     <style name="amountTextAppearance">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <style name="primaryTextAppearance">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">@dimen/font_size_medium</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
     <style name="headerTextAppearance">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/font_size_xmedium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorPrimaryText</item>
     </style>
 
     <style name="detailsTextViewStyle" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">@dimen/font_size_xxmedium</item>
         <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 

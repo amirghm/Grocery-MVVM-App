@@ -4,7 +4,7 @@ import com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel
 import com.amirghm.gerocery.data.model.catalog.CatalogProductModel
 
 internal object Constants {
-    val CATALOG_API = "http://mobcategories.s3-website-eu-west-1.amazonaws.com/"
+    const val CATALOG_API = "http://mobcategories.s3-website-eu-west-1.amazonaws.com/"
 
     val MOCK_DATA = arrayListOf(
             CatalogHeaderModel("123","Food"),
