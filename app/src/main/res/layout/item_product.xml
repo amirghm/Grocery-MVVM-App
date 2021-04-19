@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.amirghm.gerocery.data.model.catalog.CatalogProductModel" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:onClick="@{clickListener}"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/product_padding_vertical_size"
+        android:paddingBottom="@dimen/product_padding_vertical_size">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/productImageCardView"
+            android:layout_width="@dimen/product_image_size"
+            android:layout_height="@dimen/product_image_size"
+            app:cardCornerRadius="@dimen/large_distance"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="@dimen/product_image_size"
+                android:layout_height="@dimen/product_image_size">
+
+                <ImageView
+                    android:layout_width="@dimen/product_image_size"
+                    android:layout_height="@dimen/product_image_size"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/cd__product_image"
+                    android:scaleType="centerCrop"
+                    app:srcUrl="@{item.fullImageUrl}"
+                    tools:src="@drawable/ic_place_holder" />
+
+                <View
+                    android:layout_width="@dimen/product_image_size"
+                    android:layout_height="@dimen/product_image_size"
+                    android:background="@drawable/bg_product_stroke" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/amountTextView"
+            style="@style/amountTextAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productImageCardView"
+            android:layout_marginStart="@dimen/small_distance"
+            android:layout_marginTop="@dimen/medium_distance"
+            android:singleLine="true"
+            android:text="@{item.getAmountWithCurrency()}"
+            tools:text="10.55 Euro" />
+
+        <TextView
+            style="@style/primaryTextAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/amountTextView"
+            android:layout_marginStart="@dimen/small_distance"
+            android:singleLine="true"
+            android:text="@{item.name}"
+            android:textColor="@color/colorPrimaryText"
+            tools:text="Mozzarella" />
+
+
+    </RelativeLayout>
+
+</layout>
