@@ -30,7 +30,7 @@ class CatalogViewModel @Inject constructor(var catalogRepository: CatalogReposit
             isLoading.value = false
             when (result.status) {
                 Result.Status.ERROR -> {
-                    errorModel.value = result.errorModel
+                    errorModel.postValue(result.errorModel)
                 }
                 Result.Status.SUCCESS -> {
                     emit(mapCatalogResponseToUIList(result.data))

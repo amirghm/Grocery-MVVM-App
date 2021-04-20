@@ -12,6 +12,8 @@ import com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel
 import com.amirghm.gerocery.data.model.catalog.CatalogModel
 import com.amirghm.gerocery.databinding.FragmentCatalogBinding
 import com.amirghm.gerocery.ui.catalog.list.CatalogAdapter
+import com.amirghm.gerocery.utils.extentions.observeOnce
+import com.amirghm.gerocery.utils.helper.network.ErrorModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,25 +41,50 @@ class CatalogFragment : Fragment() {
     private fun configureViews() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        binding.swipeToRefresh.setColorSchemeResources(R.color.colorAccent)
 
         setupRecyclerView()
 
         binding.swipeToRefresh.setOnRefreshListener { viewModel.refreshList() }
+        binding.noInternetContainer.noInternetTryAgainButton.setOnClickListener { viewModel.refreshList() }
+        binding.emptyStateContainer.emptyStateTryAgainButton.setOnClickListener { viewModel.refreshList() }
     }
 
     private fun configureViewModel()
     {
-        viewModel.catalogList.observe(viewLifecycleOwner,{
-            handleCatalogData(it)
-        })
-
-        viewModel.errorModel.observe(viewLifecycleOwner,{
-            TODO("To be implemented")
-        })
+        viewModel.catalogList.observe(viewLifecycleOwner,{ handleCatalogData(it) })
+        viewModel.errorModel.observeOnce { showError(it) }
     }
 
     private fun handleCatalogData(catalogs: List<CatalogModel>) {
-        adapter.updateData(catalogs)
+        if(catalogs.isEmpty()) {
+            showEmptyState()
+            hideError()
+        }
+        else {
+            hideEmptyState()
+            hideError()
+            adapter.updateData(catalogs)
+        }
+    }
+
+    private fun showEmptyState() {
+        binding.emptyStateContainer.root.visibility = View.VISIBLE
+    }
+
+    private fun hideEmptyState()
+    {
+        binding.emptyStateContainer.root.visibility = View.GONE
+    }
+
+    private fun showError(errorModel: ErrorModel?) {
+        if(errorModel!=null)
+            binding.noInternetContainer.root.visibility = View.VISIBLE
+    }
+
+    private fun hideError()
+    {
+        binding.noInternetContainer.root.visibility = View.GONE
     }
 
     private fun setupRecyclerView() {
@@ -82,4 +109,5 @@ class CatalogFragment : Fragment() {
         adapter = CatalogAdapter()
         return adapter
     }
+
 }

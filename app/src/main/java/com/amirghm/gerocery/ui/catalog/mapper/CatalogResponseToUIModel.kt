@@ -27,7 +27,7 @@ fun mapCatalogResponseToUIList(responseList: List<CatalogResponseModel>?): List<
     return catalogModelList
 }
 
-internal fun ProductResponseModel.toCatalogProductModel() =
+private fun ProductResponseModel.toCatalogProductModel() =
     CatalogProductModel(
         this.id,
         this.name,
@@ -37,7 +37,7 @@ internal fun ProductResponseModel.toCatalogProductModel() =
         this.salePrice.currency
     )
 
-internal fun CatalogResponseModel.toCatalogHeaderModel() =
+private fun CatalogResponseModel.toCatalogHeaderModel() =
     CatalogHeaderModel(this.id, this.name)
 
 fun getImageUrl(url: String) = "${BuildConfig.BASE_IMAGE_URL}$url"
