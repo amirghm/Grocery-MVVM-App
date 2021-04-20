@@ -1,21 +1,33 @@
 package com.amirghm.gerocery
 
-import com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel
 import com.amirghm.gerocery.data.model.catalog.CatalogProductModel
+import com.amirghm.gerocery.data.model.responses.CatalogResponseModel
+import com.amirghm.gerocery.data.model.responses.ProductResponseModel
+import com.amirghm.gerocery.data.model.responses.SalePriceResponseModel
+
 
 internal object Constants {
     const val CATALOG_API = "http://mobcategories.s3-website-eu-west-1.amazonaws.com/"
 
-    val MOCK_DATA = arrayListOf(
-            CatalogHeaderModel("123","Food"),
-            CatalogProductModel("42","Bread","/Bread.jpg","Very Good","0.5","EUR"),
-            CatalogProductModel("422","Milk","/Milk.jpg","Very Good","6.25","EUR"),
-            CatalogProductModel("1","Sandwich","/Sandwich.jpg","Very Good","10","EUR"),
-            CatalogProductModel("4412","Cake","/Cake.jpg","Very Good","4.0","EUR"),
-            CatalogHeaderModel("123","Drink"),
-            CatalogProductModel("4412","Juice","/Juice.jpg","Very Good","0.20","EUR"),
-            CatalogProductModel("1","Fanta","/Fanta.jpg","Very Good","10","EUR"),
-            CatalogProductModel("4412","Beer","/Beer.jpg","Very Good","1.0","EUR"),
-            CatalogProductModel("422","Cola","/Cola.jpg","Very Good","2.45","EUR"),
-        )
+    private val FAKE_CATALOG_NETWORK_MODEL = CatalogResponseModel(
+        id = "id",
+        name = "title",
+        description = "description",
+        products = mutableListOf<ProductResponseModel>().apply {
+            add(
+                ProductResponseModel(
+                    "1240",
+                    "id",
+                    "egg",
+                    FAKE_IMAGE_URL,
+                    "no description",
+                    SalePriceResponseModel("123", "Euro")
+                )
+            )
+        }
+    )
+    val FAKE_CATALOG_MODEL = CatalogProductModel("422","Milk","/Milk.jpg","Very Good","6.25","EUR")
+    val FAKE_RESPONSE_MODEL = listOf(FAKE_CATALOG_NETWORK_MODEL)
+    val FAKE_EMPTY_MODEL:List<CatalogResponseModel>  = listOf()
+    const val FAKE_IMAGE_URL = "/url.png"
 }

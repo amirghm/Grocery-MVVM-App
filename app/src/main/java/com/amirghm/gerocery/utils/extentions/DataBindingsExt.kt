@@ -5,7 +5,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
-import com.amirghm.gerocery.BuildConfig
 import com.amirghm.gerocery.utils.imageloader.loadImage
 
 
@@ -21,7 +20,7 @@ fun ImageView.setSrcUrl(imageUrl: String?) {
     if (imageUrl.isNullOrEmpty())
         this.setImageDrawable(null)
     else
-        loadImage("${BuildConfig.BASE_IMAGE_URL}$imageUrl", this)
+        loadImage(imageUrl, this)
 }
 
 

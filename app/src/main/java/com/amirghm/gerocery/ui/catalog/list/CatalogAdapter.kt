@@ -12,9 +12,9 @@ import com.amirghm.gerocery.ui.catalog.list.holders.ProductViewHolder
 
 class CatalogAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var data: MutableList<CatalogModel> = ArrayList()
+    private var data: ArrayList<CatalogModel> = ArrayList()
 
-    fun updateData(items: MutableList<CatalogModel>) {
+    fun updateData(items: List<CatalogModel>) {
         val diffResult = DiffUtil.calculateDiff(CatalogDiffUtilCallback(this.data, items))
         data.clear()
         data.addAll(items)

@@ -1,11 +1,13 @@
 package com.amirghm.gerocery.ui.catalog
 
 import androidx.lifecycle.*
-import com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel
 import com.amirghm.gerocery.data.model.catalog.CatalogModel
-import com.amirghm.gerocery.data.model.catalog.CatalogProductModel
 import com.amirghm.gerocery.data.repository.CatalogRepository
+import com.amirghm.gerocery.ui.catalog.mapper.mapCatalogResponseToUIList
+import com.amirghm.gerocery.utils.helper.network.ErrorModel
+import com.amirghm.gerocery.utils.helper.network.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 @HiltViewModel
@@ -13,22 +15,31 @@ class CatalogViewModel @Inject constructor(var catalogRepository: CatalogReposit
     ViewModel() {
 
     val isLoading = MutableLiveData<Boolean>()
-    val catalogList= MutableLiveData<MutableList<CatalogModel>>()
+    private val refreshList = MutableLiveData<Boolean>().apply { value = true }
+    val errorModel = MutableLiveData<ErrorModel?>()
+    val catalogList: MutableLiveData<List<CatalogModel>>
+        get() = _catalogList as MutableLiveData<List<CatalogModel>>
 
-    init {
-        val MOCK_DATA = arrayListOf(
-            CatalogHeaderModel("123","Food"),
-            CatalogProductModel("42","Bread","/Bread.jpg","Very Good","0.5","EUR"),
-            CatalogProductModel("422","Milk","/Milk.jpg","Very Good","6.25","EUR"),
-            CatalogProductModel("1","Sandwich","/Sandwich.jpg","Very Good","10","EUR"),
-            CatalogProductModel("4412","Cake","/Cake.jpg","Very Good","4.0","EUR"),
-            CatalogHeaderModel("123","Drink"),
-            CatalogProductModel("4412","Juice","/Juice.jpg","","0.20","EUR"),
-            CatalogProductModel("1","Fanta","/Fanta.jpg","Very Good","10","EUR"),
-            CatalogProductModel("4412","Beer","/Beer.jpg","Very Good","1.0","EUR"),
-            CatalogProductModel("422","Cola","/Cola.jpg","Very Good","2.45","EUR"),
-        )
-        catalogList.value?.clear()
-        catalogList.value=MOCK_DATA
+    private var _catalogList: LiveData<List<CatalogModel>> = refreshList.switchMap {
+        isLoading.value = true
+        getProducts()
+    }
+
+    private fun getProducts() = liveData {
+        catalogRepository.getProducts().collect { result->
+            isLoading.value = false
+            when (result.status) {
+                Result.Status.ERROR -> {
+                    errorModel.value = result.errorModel
+                }
+                Result.Status.SUCCESS -> {
+                    emit(mapCatalogResponseToUIList(result.data))
+                }
+            }
+        }
+    }
+
+    fun refreshList() {
+        refreshList.value = true
     }
 }

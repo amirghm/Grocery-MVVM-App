@@ -59,10 +59,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/productImageCardView"
-            android:layout_marginStart="@dimen/small_distance"
-            android:layout_marginTop="@dimen/medium_distance"
+            android:layout_marginStart="@dimen/distance_small"
+            android:layout_marginTop="@dimen/distance_medium"
             android:singleLine="true"
-            android:text="@{item.getAmountWithCurrency()}"
+            android:text="@{item.amountWithCurrency}"
             tools:text="10.55 Euro" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/amountTextView"
-            android:layout_marginStart="@dimen/small_distance"
+            android:layout_marginStart="@dimen/distance_small"
             android:singleLine="true"
             android:text="@{item.name}"
             android:textColor="@color/colorPrimaryText"
