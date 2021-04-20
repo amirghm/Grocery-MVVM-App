@@ -1,4 +1,4 @@
-package com.amirghm.gerocery.helpers
+package com.amirghm.gerocery.utils
 
 import com.amirghm.gerocery.Constants.CATALOG_API
 import okhttp3.mockwebserver.Dispatcher

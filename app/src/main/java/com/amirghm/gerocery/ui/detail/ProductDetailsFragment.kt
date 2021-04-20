@@ -9,25 +9,27 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.amirghm.gerocery.R
-import com.amirghm.gerocery.databinding.FragmentProductDetailBinding
+import com.amirghm.gerocery.databinding.FragmentProductDetailsBinding
 
-
-class ProductDetailFragment : Fragment() {
-    lateinit var binding: FragmentProductDetailBinding
-    private val viewModel by viewModels<ProductDetailViewModel>()
+/**
+ * This fragment is responsible for showing products details
+ */
+class ProductDetailsFragment : Fragment() {
+    private lateinit var binding: FragmentProductDetailsBinding
+    private val viewModel by viewModels<ProductDetailsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProductDetailBinding.inflate(inflater, container, false)
+        binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
     private fun readArguments() {
-        val args: ProductDetailFragmentArgs by navArgs()
+        val args: ProductDetailsFragmentArgs by navArgs()
         viewModel.productModel = args.product
     }
 

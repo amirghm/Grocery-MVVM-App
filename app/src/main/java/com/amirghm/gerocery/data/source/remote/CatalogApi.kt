@@ -5,7 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface CatalogApi {
-    // TODO: Add GetProducts Address here
-    @GET("")
+    @GET(".")
     suspend fun getProducts(): Response<List<CatalogResponseModel>>
 }

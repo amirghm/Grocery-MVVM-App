@@ -1,8 +1,10 @@
 package com.amirghm.gerocery.di
 
 import com.amirghm.gerocery.data.repository.CatalogRepository
+import com.amirghm.gerocery.data.repository.CatalogRepositoryImpl
+import com.amirghm.gerocery.data.source.CatalogDataSource
 import com.amirghm.gerocery.data.source.remote.CatalogApi
-import com.amirghm.gerocery.data.source.remote.CatalogRemoteDataSource
+import com.amirghm.gerocery.data.source.remote.CatalogRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,12 +22,12 @@ object RepositoryModule {
 
     @RemoteCatalogDataSource
     @Provides
-    fun provideRemoteCatalogDataSource(@NetworkModule.Catalog catalogApiService: CatalogApi): CatalogRemoteDataSource =
-        CatalogRemoteDataSource(catalogApiService)
+    fun provideRemoteCatalogDataSource(@NetworkModule.Catalog catalogApiService: CatalogApi): CatalogDataSource =
+        CatalogRemoteDataSourceImpl(catalogApiService)
 
     @Provides
-    fun provideCatalogRepository(@RemoteCatalogDataSource remoteCatalogDataSource: CatalogRemoteDataSource): CatalogRepository =
-        CatalogRepository(remoteCatalogDataSource)
+    fun provideCatalogRepository(@RemoteCatalogDataSource remoteCatalogDataSource: CatalogDataSource): CatalogRepository =
+        CatalogRepositoryImpl(remoteCatalogDataSource)
 
     @Singleton
     @NetworkModule.Catalog

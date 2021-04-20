@@ -19,7 +19,7 @@ class ProductViewHolder(private val binding: ItemProductBinding) :
 
     private fun onProductClicked(view: View?, item: CatalogProductModel) {
         val action =
-            CatalogFragmentDirections.actionCatalogFragmentToProductDetailFragment(item)
+            CatalogFragmentDirections.actionCatalogFragmentToProductDetailsFragment(item)
         view?.findNavController()?.navigate(action)
     }
 

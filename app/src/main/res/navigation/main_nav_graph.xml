@@ -11,18 +11,18 @@
         android:label="CatalogFragment"
         tools:layout="@layout/fragment_catalog">
         <action
-            android:id="@+id/action_catalogFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment"
+            android:id="@+id/action_catalogFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
             app:enterAnim="@anim/slide_up"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@anim/slide_down" />
     </fragment>
     <fragment
-        android:id="@+id/productDetailFragment"
-        android:name="com.amirghm.gerocery.ui.detail.ProductDetailFragment"
-        android:label="ProductDetailFragment"
-        tools:layout="@layout/fragment_product_detail">
+        android:id="@+id/productDetailsFragment"
+        android:name="com.amirghm.gerocery.ui.detail.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
         <argument
             android:name="product"
             app:argType="com.amirghm.gerocery.data.model.catalog.CatalogProductModel" />

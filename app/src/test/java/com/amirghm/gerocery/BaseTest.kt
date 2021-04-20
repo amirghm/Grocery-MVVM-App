@@ -1,7 +1,7 @@
 package com.amirghm.gerocery
 
 
-import com.amirghm.gerocery.helpers.RequestDispatcher
+import com.amirghm.gerocery.utils.RequestDispatcher
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 internal open class BaseTest {
     private lateinit var mockWebServer: MockWebServer
 
-    lateinit var retrofit: Retrofit
+    private lateinit var retrofit: Retrofit
 
     private lateinit var okHttpClient: OkHttpClient
 

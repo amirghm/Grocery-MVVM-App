@@ -1,4 +1,4 @@
-package com.amirghm.gerocery.helpers
+package com.amirghm.gerocery.utils
 
 import com.google.common.io.Resources.getResource
 import java.io.File

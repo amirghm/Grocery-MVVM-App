@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.amirghm.gerocery.R
 import com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel
+import com.amirghm.gerocery.data.model.catalog.CatalogModel
 import com.amirghm.gerocery.databinding.FragmentCatalogBinding
 import com.amirghm.gerocery.ui.catalog.list.CatalogAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,16 +42,22 @@ class CatalogFragment : Fragment() {
 
         setupRecyclerView()
 
-        binding.swipeToRefresh.setOnRefreshListener {
-            //TODO("Not yet implemented")
-        }
+        binding.swipeToRefresh.setOnRefreshListener { viewModel.refreshList() }
     }
 
     private fun configureViewModel()
     {
         viewModel.catalogList.observe(viewLifecycleOwner,{
-            adapter.updateData(it!!)
+            handleCatalogData(it)
         })
+
+        viewModel.errorModel.observe(viewLifecycleOwner,{
+            TODO("To be implemented")
+        })
+    }
+
+    private fun handleCatalogData(catalogs: List<CatalogModel>) {
+        adapter.updateData(catalogs)
     }
 
     private fun setupRecyclerView() {
