@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorTintBackground"
+        android:orientation="vertical"
+        android:layout_height="@dimen/catalog_header_height">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shadow_height"
+            android:background="@drawable/d_up_shadow"/>
+
+        <TextView
+            style="@style/headerTextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@color/colorTintBackground"
+            android:paddingStart="@dimen/header_padding_horizontal"
+            android:paddingEnd="@dimen/header_padding_horizontal"
+            android:text="@{item.name}"
+            tools:text="Header" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shadow_height"
+            android:background="@drawable/d_down_shadow"/>
+
+
+    </LinearLayout>
+
+</layout>

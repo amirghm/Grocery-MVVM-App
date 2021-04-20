@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.amirghm.gerocery.data.model.catalog.CatalogProductModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/addToBasketLinearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/productImageCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/product_image_details_height"
+                    android:layout_alignParentTop="true"
+                    app:cardElevation="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:contentDescription="@string/cd__product_image"
+                            android:scaleType="centerCrop"
+                            app:srcUrl="@{product.imageUrl}"
+                            tools:src="@drawable/ic_place_holder" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/amountTextView"
+                    style="@style/titleTextAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/productImageCardView"
+                    android:layout_marginStart="@dimen/distance_large"
+                    android:layout_marginTop="@dimen/distance_medium"
+                    android:singleLine="true"
+                    android:text="@{product.getAmountWithCurrency()}"
+                    android:textColor="@color/colorPrimary"
+                    tools:text="10.55 Euro" />
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    style="@style/titleTextAppearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/amountTextView"
+                    android:layout_marginStart="@dimen/distance_large"
+                    android:singleLine="true"
+                    android:text="@{product.name}"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textStyle="normal"
+                    tools:text="Mozzarella" />
+
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    style="@style/detailsTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nameTextView"
+                    android:layout_marginStart="@dimen/distance_large"
+                    android:layout_marginTop="@dimen/distance_medium"
+                    android:layout_marginBottom="@dimen/distance_large"
+                    android:singleLine="true"
+                    android:text="@{product.description}"
+                    app:placeHolder="@{@string/product_details__description_place_holder}"
+                    tools:text="@string/product_details__description_place_holder" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/toolbarView"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/closeImageView"
+                android:layout_width="@dimen/clickable_icon_size"
+                android:layout_height="@dimen/clickable_icon_size"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/cd__back"
+                android:padding="@dimen/clickable_icon_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navigateUpOnClick="@{true}"
+                app:srcCompat="@drawable/ic_close"
+                app:tint="@color/colorPrimaryText" />
+
+            <TextView
+                android:id="@+id/toolbarTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/product_details__title"
+                android:theme="@style/titleTextAppearance" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shadow_height"
+            android:background="@drawable/d_up_shadow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarView" />
+
+        <LinearLayout
+            android:id="@+id/addToBasketLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/addToBasketButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_margin="@dimen/distance_large"
+                android:text="@string/product_details__add_to_basket"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
