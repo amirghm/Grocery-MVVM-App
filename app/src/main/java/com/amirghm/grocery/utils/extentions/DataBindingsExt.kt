@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
-import com.amirghm.grocery.utils.imageloader.loadImage
+import com.amirghm.grocery.utils.helper.imageloader.loadImage
 
 
 /**

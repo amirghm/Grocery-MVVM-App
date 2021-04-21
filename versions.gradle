@@ -16,8 +16,8 @@ ext {
     NAVIGATION = '2.3.5'
 
     // hilt
-    HILT = '2.34.1-beta'
-    HILT_ANDROID_X = '1.0.0-alpha03'
+    HILT = '2.28.1-alpha'
+    HILT_ANDROID_X = '1.0.0-alpha02'
 
     // test tools
     JUNIT = '4.13.2'
