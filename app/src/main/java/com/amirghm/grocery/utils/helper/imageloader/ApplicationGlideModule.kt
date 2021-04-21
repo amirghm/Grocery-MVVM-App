@@ -1,4 +1,4 @@
-package com.amirghm.grocery.utils.imageloader
+package com.amirghm.grocery.utils.helper.imageloader
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

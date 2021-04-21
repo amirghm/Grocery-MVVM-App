@@ -8,13 +8,13 @@ import com.amirghm.grocery.data.source.remote.CatalogRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ApplicationComponent
 import retrofit2.Retrofit
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 object RepositoryModule {
     @Qualifier
     @Retention(AnnotationRetention.RUNTIME)
