@@ -31,3 +31,8 @@ dependencies {
     with coroutines
     with glide
 }
+
+repositories {
+    google()
+    mavenCentral()
+}

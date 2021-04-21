@@ -1,17 +1,15 @@
 package com.amirghm.grocery.ui.catalog
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.amirghm.grocery.data.model.catalog.CatalogModel
 import com.amirghm.grocery.data.repository.CatalogRepository
 import com.amirghm.grocery.ui.catalog.mapper.mapCatalogResponseToUIList
 import com.amirghm.grocery.utils.helper.network.ErrorModel
 import com.amirghm.grocery.utils.helper.network.Result
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
-import javax.inject.Inject
 
-@HiltViewModel
-class CatalogViewModel @Inject constructor(var catalogRepository: CatalogRepository) :
+class CatalogViewModel @ViewModelInject constructor(var catalogRepository: CatalogRepository) :
     ViewModel() {
 
     val isLoading = MutableLiveData<Boolean>()

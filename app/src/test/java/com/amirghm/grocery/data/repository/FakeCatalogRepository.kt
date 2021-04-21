@@ -25,6 +25,8 @@ class FakeCatalogRepository : CatalogRepository {
 
     fun setReturnError(value: Boolean) {
         shouldReturnError = value
+        if(shouldReturnError)
+            errorCode = 404
     }
 
     fun sendEmptyModel(value: Boolean)
