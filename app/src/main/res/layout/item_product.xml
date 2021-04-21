@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.amirghm.gerocery.data.model.catalog.CatalogProductModel" />
+            type="com.amirghm.grocery.data.model.catalog.CatalogProductModel" />
 
         <variable
             name="clickListener"

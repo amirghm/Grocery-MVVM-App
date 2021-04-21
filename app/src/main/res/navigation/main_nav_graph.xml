@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="com.amirghm.gerocery.ui.catalog.CatalogFragment"
+        android:name="com.amirghm.grocery.ui.catalog.CatalogFragment"
         android:label="CatalogFragment"
         tools:layout="@layout/fragment_catalog">
         <action
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.amirghm.gerocery.ui.detail.ProductDetailsFragment"
+        android:name="com.amirghm.grocery.ui.detail.ProductDetailsFragment"
         android:label="ProductDetailsFragment"
         tools:layout="@layout/fragment_product_details">
         <argument
             android:name="product"
-            app:argType="com.amirghm.gerocery.data.model.catalog.CatalogProductModel" />
+            app:argType="com.amirghm.grocery.data.model.catalog.CatalogProductModel" />
     </fragment>
 
 </navigation>
