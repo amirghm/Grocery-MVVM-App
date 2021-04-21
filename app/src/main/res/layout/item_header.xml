@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.amirghm.gerocery.data.model.catalog.CatalogHeaderModel" />
+            type="com.amirghm.grocery.data.model.catalog.CatalogHeaderModel" />
 
     </data>
 

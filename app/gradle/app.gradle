@@ -1,5 +1,5 @@
 ext {
-    APPLICATION_ID = "com.amirghm.gerocery"
+    APPLICATION_ID = "com.amirghm.grocery"
 
     COMPILE_SDK = 30
     TARGET_SDK = 30

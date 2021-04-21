@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.amirghm.gerocery.ui.catalog.CatalogViewModel" />
+            type="com.amirghm.grocery.ui.catalog.CatalogViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
